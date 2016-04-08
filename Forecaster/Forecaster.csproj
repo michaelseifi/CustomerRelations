@@ -240,21 +240,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Service References\Services.Email\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\Services.Forecaster\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\Services.Promotions\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -274,84 +259,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\Services.Email\daisybrand.forecaster.Services.Email.SendMailResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Services.Email\daisybrand.forecaster.Services.Email.SendMailWithAttachmentResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Services.Email\emailservice.wsdl" />
-    <None Include="Service References\Services.Forecaster\AA_Forecaster.Entities.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Forecaster\AA_Forecaster.Model.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Forecaster\AA_Forecaster.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Forecaster\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Forecaster\daisybrand.forecaster.Services.Forecaster.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Services.Forecaster\daisybrand.forecaster.Services.Forecaster.Customer.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Services.Forecaster\daisybrand.forecaster.Services.Forecaster.FORECASTER_KROGER_SALES_QTY_CASES.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Services.Forecaster\service.wsdl" />
-    <None Include="Service References\Services.Forecaster\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Forecaster\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Forecaster\System.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Promotions\daisybrand.forecaster.Services.Promotions.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Services.Promotions\daisybrand.forecaster.Services.Promotions.FORECASTER_PROMOTIONS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Services.Promotions\Promotions.Entities.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Promotions\Promotions.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Promotions\service.wsdl" />
-    <None Include="Service References\Services.Promotions\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services.Promotions\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Services.Email\emailservice.disco" />
-    <None Include="Service References\Services.Email\configuration91.svcinfo" />
-    <None Include="Service References\Services.Email\configuration.svcinfo" />
-    <None Include="Service References\Services.Email\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\Services.Forecaster\configuration91.svcinfo" />
-    <None Include="Service References\Services.Forecaster\configuration.svcinfo" />
-    <None Include="Service References\Services.Forecaster\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\Services.Promotions\configuration91.svcinfo" />
-    <None Include="Service References\Services.Promotions\configuration.svcinfo" />
-    <None Include="Service References\Services.Promotions\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -405,11 +312,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\Services.Email\" />
-    <WCFMetadataStorage Include="Service References\Services.Forecaster\" />
-    <WCFMetadataStorage Include="Service References\Services.Promotions\" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
