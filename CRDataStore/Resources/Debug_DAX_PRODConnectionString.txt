@@ -1,1 +1,0 @@
-Data Source=AXSQLVM01;Initial Catalog=DBIDAXTEST;Integrated Security=True;Connect Timeout=300
