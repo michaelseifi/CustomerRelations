@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62E542B2-5FF4-4474-A751-7EFCF8681455}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>daisybrand.forecaster</RootNamespace>
+    <AssemblyName>daisybrand.forecaster</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>Z:\wwwroot\clickonce\forecaster\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://dbiintranet03ts/clickonce/forecaster/</UpdateUrl>
+    <ProductName>Forecaster</ProductName>
+    <PublisherName>DaisyBrand</PublisherName>
+    <SuiteName>Forecaster</SuiteName>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationVersion>14.13.12.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Debug</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;Release</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5974D75462119468A3B9916A7C0F7436E4296E14</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Forecaster_ProdKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>statistic32x32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release with test tables|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;Debug</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release%28test%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;Debug</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug with prod tables|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug with prod tables\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Release</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="devexpress.xpf.charts.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Mvvm.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="devexpress.xpf.grid.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="devexpress.xpf.layoutcontrol.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="devexpress.xpf.ribbon.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Black.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Black.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="SpreadsheetGear2012.Core, Version=7.1.1.120, Culture=neutral, PublicKeyToken=39c186f5904944ec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Spreadsheetgear\SpreadsheetGear2012.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="spreadsheetgear2012.windows.wpf, Version=7.1.1.120, Culture=neutral, PublicKeyToken=39c186f5904944ec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Spreadsheetgear\spreadsheetgear2012.windows.wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>packages\WPFToolKit\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>packages\WPFToolKit\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\RefreshHandler.cs" />
+    <Compile Include="Controlers\Collections\ActualOrderCollection.cs" />
+    <Compile Include="Controlers\Collections\ForecastCollection.cs" />
+    <Compile Include="Controlers\Collections\HolidayCollection.cs" />
+    <Compile Include="Controlers\Collections\OrderCasesCollection.cs" />
+    <Compile Include="Controlers\Collections\OrderStatusCollection.cs" />
+    <Compile Include="Controlers\Collections\PerformanceCollection.cs" />
+    <Compile Include="Controlers\Collections\PerformanceExceptionsCollection.cs" />
+    <Compile Include="Controlers\Collections\PosCollections.cs" />
+    <Compile Include="Controlers\Collections\SettingsCollection.cs" />
+    <Compile Include="Controlers\Collections\TabCollection.cs" />
+    <Compile Include="Controlers\Collections\UserCollection.cs" />
+    <Compile Include="Controlers\Enums\DState.cs" />
+    <Compile Include="Controlers\Fields\BaseLine.cs" />
+    <Compile Include="Controlers\Fields\BaseIndex.cs" />
+    <Compile Include="Controlers\Interfaces\IField.cs" />
+    <Compile Include="Controlers\Interfaces\ITab.cs" />
+    <Compile Include="Controlers\Enums\MState.cs" />
+    <Compile Include="Controlers\Objects\Tab.cs" />
+    <Compile Include="Controls\_BarManger.cs" />
+    <Compile Include="Converters\IsValueZeroConverter.cs" />
+    <Compile Include="Converters\PerformanceMStateConverter.cs" />
+    <Compile Include="Converters\MultiBoolConverter.cs" />
+    <Compile Include="Converters\PerformanceDStateConverter.cs" />
+    <Compile Include="Converters\SkusItemNumberConverter.cs" />
+    <Compile Include="Converters\SkusCommentConverter.cs" />
+    <Compile Include="Converters\ToolTipEnableConverter.cs" />
+    <Compile Include="Exceptions\ItemNotInsertedException.cs" />
+    <Compile Include="Helpers\DelayedAction.cs" />
+    <Compile Include="Helpers\Duel.cs" />
+    <Compile Include="Helpers\Import.cs" />
+    <Compile Include="Controlers\Interfaces\IHoldiay.cs" />
+    <Compile Include="Controlers\Interfaces\IMessage.cs" />
+    <Compile Include="Controlers\Interfaces\IOrder.cs" />
+    <Compile Include="Controlers\Interfaces\IOrderStatus.cs" />
+    <Compile Include="Controlers\Interfaces\IPos.cs" />
+    <Compile Include="Controlers\Interfaces\IOrderCase.cs" />
+    <Compile Include="Controlers\Objects\Holiday.cs" />
+    <Compile Include="Helpers\Log.cs" />
+    <Compile Include="Controlers\Objects\Message.cs" />
+    <Compile Include="Controlers\Objects\Order.cs" />
+    <Compile Include="Controlers\Objects\OrderCase.cs" />
+    <Compile Include="Helpers\Caching.cs" />
+    <Compile Include="Controlers\Objects\Comment.cs" />
+    <Compile Include="Controlers\Objects\Customer.cs" />
+    <Compile Include="Controlers\Collections\CustomerCollection.cs" />
+    <Compile Include="Controlers\Objects\CellComment.cs" />
+    <Compile Include="Controlers\Objects\Forecast.cs" />
+    <Compile Include="Controlers\Interfaces\IQcQd.cs" />
+    <Compile Include="Controlers\Interfaces\IComment.cs" />
+    <Compile Include="Controlers\Interfaces\IForecast.cs" />
+    <Compile Include="Controlers\Interfaces\ICellComment.cs" />
+    <Compile Include="Controlers\Interfaces\IUser.cs" />
+    <Compile Include="Controlers\Objects\Fsi.cs" />
+    <Compile Include="Controlers\Interfaces\IFsi.cs" />
+    <Compile Include="Controlers\Interfaces\IPerformance.cs" />
+    <Compile Include="Controlers\Objects\OrderStatus.cs" />
+    <Compile Include="Controlers\Objects\Performance.cs" />
+    <Compile Include="Controlers\Objects\Pos.cs" />
+    <Compile Include="Controlers\Objects\QcQd.cs" />
+    <Compile Include="Controlers\Collections\DataCollection.cs" />
+    <Compile Include="Controlers\Objects\DailyData.cs" />
+    <Compile Include="Controlers\Objects\ReportingDay.cs" />
+    <Compile Include="Controlers\Objects\SafetyStockDay.cs" />
+    <Compile Include="Controlers\Objects\Settings.cs" />
+    <Compile Include="Controlers\Objects\Sku.cs" />
+    <Compile Include="Controlers\Collections\SkuCollection.cs" />
+    <Compile Include="Controlers\Interfaces\ICustomer.cs" />
+    <Compile Include="Controlers\Interfaces\IDailyData.cs" />
+    <Compile Include="Controlers\Interfaces\ISku.cs" />
+    <Compile Include="Controlers\Objects\User.cs" />
+    <Compile Include="Controlers\ViewModels\CustomerSearch.model.cs" />
+    <Compile Include="Controlers\ViewModels\Graph.model.cs" />
+    <Compile Include="Controlers\ViewModels\Order.model.cs" />
+    <Compile Include="Controlers\ViewModels\Percentage.model.cs" />
+    <Compile Include="Controls\SubControls\_ComboBoxEdit_NumOfDaysInGroup.cs" />
+    <Compile Include="Controls\SubControls\_ComboBoxEdit_Users.cs" />
+    <Compile Include="Controls\SubControls\_ComboBoxEdit_View.cs" />
+    <Compile Include="Controls\SubControls\_GridControl_Performance.cs" />
+    <Compile Include="Controls\SubControls\_GridEditorContainer.cs" />
+    <Compile Include="Converters\CellBackgroundConverter.cs" />
+    <Compile Include="Converters\CommaDelimetedConverter.cs" />
+    <Compile Include="Converters\CustomerConverter.cs" />
+    <Compile Include="Converters\FirstPerfomanceConverter.cs" />
+    <Compile Include="Converters\FocusedDataConverter.cs" />
+    <Compile Include="Converters\ForecastLastValueConverter.cs" />
+    <Compile Include="Converters\HolidayCellBackgroundConverter.cs" />
+    <Compile Include="Converters\MultiVisibilityConverter.cs" />
+    <Compile Include="Converters\RowBackgroundConverter.cs" />
+    <Compile Include="Converters\SkusConverter.cs" />
+    <Compile Include="Converters\TextUpperCaseConverter.cs" />
+    <Compile Include="Converters\ToolTipVisibilityConverter.cs" />
+    <Compile Include="Converters\ToPercentageConverter.cs" />
+    <Compile Include="Converters\VisibilityConverter.cs" />
+    <Compile Include="Converters\VisibilityReversalConverter.cs" />
+    <Compile Include="Converters\WeeklyDetailConverter.cs" />
+    <Compile Include="Exceptions\DeleteException.cs" />
+    <Compile Include="Exceptions\GraphException.cs" />
+    <Compile Include="Exceptions\InsertException.cs" />
+    <Compile Include="Exceptions\NonAuthenticatedException.cs" />
+    <Compile Include="Extensions\_Date.cs" />
+    <Compile Include="Extensions\_IEnumerableExtension.cs" />
+    <Compile Include="Extensions\_Int.cs" />
+    <Compile Include="Extensions\_QcQd.cs" />
+    <Compile Include="Extensions\_String.cs" />
+    <Compile Include="MainWindow.privates.xaml.cs" />
+    <Compile Include="Presentation\Resources\Behaviors\MasterCurrentItemBehavior.cs" />
+    <Compile Include="Presentation\UserControls\Calculator.xaml.cs">
+      <DependentUpon>Calculator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\CustomerExceptions.xaml.cs">
+      <DependentUpon>CustomerExceptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\CustomerSettings.xaml.cs">
+      <DependentUpon>CustomerSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\Distribution.xaml.cs">
+      <DependentUpon>Distribution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\GraphTopMenu.xaml.cs">
+      <DependentUpon>GraphTopMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\Holidays.xaml.cs">
+      <DependentUpon>Holidays.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\Icons.xaml.cs">
+      <DependentUpon>Icons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\Percentage.xaml.cs">
+      <DependentUpon>Percentage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\PerformanceExceptions.xaml.cs">
+      <DependentUpon>PerformanceExceptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\Promotions.xaml.cs">
+      <DependentUpon>Promotions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\SkuComment.xaml.cs">
+      <DependentUpon>SkuComment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\SkuExceptions.xaml.cs">
+      <DependentUpon>SkuExceptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\SkuItemNumber.xaml.cs">
+      <DependentUpon>SkuItemNumber.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\Tabs.xaml.cs">
+      <DependentUpon>Tabs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\UtilitiesMenu.xaml.cs">
+      <DependentUpon>UtilitiesMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\Volatility.xaml.cs">
+      <DependentUpon>Volatility.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\WeeklyDataGrid.xaml.cs">
+      <DependentUpon>WeeklyDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\WeeklyPOSCases.xaml.cs">
+      <DependentUpon>WeeklyPOSCases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\WeeklyQSOrderQuantity.xaml.cs">
+      <DependentUpon>WeeklyQSOrderQuantity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\CellComment.xaml.cs">
+      <DependentUpon>CellComment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\DailyQAWeeklyQS.xaml.cs">
+      <DependentUpon>DailyQAWeeklyQS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\Exceptions.xaml.cs">
+      <DependentUpon>Exceptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\Graphs.privates.xaml.cs" />
+    <Compile Include="Presentation\Views\WeeklyPOSCases.xaml.cs">
+      <DependentUpon>WeeklyPOSCases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\WeeklyQSOrderQuantity.xaml.cs">
+      <DependentUpon>WeeklyQSOrderQuantity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Service References\Services.Email\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Services.Forecaster\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Services.Promotions\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="test.xaml.cs">
+      <DependentUpon>test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Validations\DecimalValidationRule.cs" />
+    <Compile Include="Validations\ForecastValidationRule.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Tools.cs" />
+    <Compile Include="Controlers\Objects\Identity.cs" />
+    <Compile Include="Controlers\ViewModels\MainWindow.model.cs" />
+    <Compile Include="Controlers\ViewModels\StatusBar_Main.model.cs" />
+    <Compile Include="Controlers\ViewModels\TopMenu.model.cs" />
+    <Compile Include="Controlers\Interfaces\IIdentity.cs" />
+    <Compile Include="Controls\SubControls\_ComboBoxEdit_Customers.cs" />
+    <Compile Include="Controls\SubControls\_ComboBoxEdit_Skus.cs" />
+    <Compile Include="Controls\SubControls\_GridControl_Quantity.cs" />
+    <Compile Include="Controls\_ComboBoxEdit.cs" />
+    <Compile Include="Controls\_GridControl.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Presentation\Resources\Styles\BureauBlack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Resources\Styles\BureauBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Resources\Styles\Default.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Resources\Styles\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Resources\Styles\ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Resources\Styles\ShinyBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Resources\Styles\ShinyRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Resources\Styles\WhistlerBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\UserControls\Calculator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\CustomerExceptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\CustomerSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\CustomerSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\DailyQAWeeklyQS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\Distribution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\GraphTopMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\Holidays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\Percentage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\PerformanceExceptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\Performances.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\Promotions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\SkuComment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\SkuExceptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\SkuItemNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\StatusBar_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\Tabs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\TopMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\UtilitiesMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\Volatility.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\WeeklyDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\WeeklyPOSCases.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\UserControls\WeeklyQSOrderQuantity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\CellComment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\DailyQAWeeklyQS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\Exceptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\Graphs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\WeeklyPOSCases.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\WeeklyQSOrderQuantity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converters\DayConverter.cs" />
+    <Compile Include="Presentation\Resources\Behaviors\QuantitiesGridBehavior.cs" />
+    <Compile Include="Presentation\UserControls\CustomerSearch.privates.xaml.cs" />
+    <Compile Include="Presentation\UserControls\CustomerSearch.xaml.cs">
+      <DependentUpon>CustomerSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\DailyQAWeeklyQS.xaml.cs">
+      <DependentUpon>DailyQAWeeklyQS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\Performances.xaml.cs">
+      <DependentUpon>Performances.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\StatusBar_Main.xaml.cs">
+      <DependentUpon>StatusBar_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\TopMenu.xaml.cs">
+      <DependentUpon>TopMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\Graphs.xaml.cs">
+      <DependentUpon>Graphs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="daisybrand.forecaster_TemporaryKey.pfx" />
+    <AppDesigner Include="Properties\" />
+    <None Include="Forecaster_1_TemporaryKey.pfx" />
+    <None Include="Forecaster_2_TemporaryKey.pfx" />
+    <None Include="Forecaster_3_TemporaryKey.pfx" />
+    <None Include="Forecaster_4_TemporaryKey.pfx" />
+    <None Include="Forecaster_5_TemporaryKey.pfx" />
+    <None Include="Forecaster_DevKey.pfx" />
+    <None Include="Forecaster_ProdKey.pfx" />
+    <None Include="Forecaster_TemporaryKey.pfx" />
+    <None Include="Forecaster_TestKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Services.Email\daisybrand.forecaster.Services.Email.SendMailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Services.Email\daisybrand.forecaster.Services.Email.SendMailWithAttachmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Services.Email\emailservice.wsdl" />
+    <None Include="Service References\Services.Forecaster\AA_Forecaster.Entities.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Forecaster\AA_Forecaster.Model.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Forecaster\AA_Forecaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Forecaster\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Forecaster\daisybrand.forecaster.Services.Forecaster.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Services.Forecaster\daisybrand.forecaster.Services.Forecaster.Customer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Services.Forecaster\daisybrand.forecaster.Services.Forecaster.FORECASTER_KROGER_SALES_QTY_CASES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Services.Forecaster\service.wsdl" />
+    <None Include="Service References\Services.Forecaster\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Forecaster\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Forecaster\System.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Promotions\daisybrand.forecaster.Services.Promotions.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Services.Promotions\daisybrand.forecaster.Services.Promotions.FORECASTER_PROMOTIONS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Services.Promotions\Promotions.Entities.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Promotions\Promotions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Promotions\service.wsdl" />
+    <None Include="Service References\Services.Promotions\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services.Promotions\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\et.GIF" />
+    <Resource Include="Presentation\Resources\Images\tornado.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Presentation\Resources\Images\foreward.png" />
+    <Resource Include="Presentation\Resources\Images\backward.png" />
+    <Resource Include="Presentation\Resources\Images\arrowdown.PNG" />
+    <Resource Include="Presentation\Resources\Images\Annotate_Warning.ico" />
+    <Resource Include="Presentation\Resources\Images\RightsRestrictedHS.png" />
+    <None Include="Service References\Services.Email\emailservice.disco" />
+    <None Include="Service References\Services.Email\configuration91.svcinfo" />
+    <None Include="Service References\Services.Email\configuration.svcinfo" />
+    <None Include="Service References\Services.Email\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="Presentation\Resources\Images\Refresh.ico" />
+    <Resource Include="Presentation\Resources\Images\error.png" />
+    <Resource Include="Presentation\Resources\Images\Maximize.ico" />
+    <Resource Include="Presentation\Resources\Images\CalculatorHS.png" />
+    <None Include="Service References\Services.Forecaster\configuration91.svcinfo" />
+    <None Include="Service References\Services.Forecaster\configuration.svcinfo" />
+    <None Include="Service References\Services.Forecaster\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="Presentation\Resources\Images\Checkmark.png" />
+    <None Include="Service References\Services.Promotions\configuration91.svcinfo" />
+    <None Include="Service References\Services.Promotions\configuration.svcinfo" />
+    <None Include="Service References\Services.Promotions\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="tornado.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Presentation\Resources\Images\statistic.PNG" />
+    <Resource Include="Presentation\Resources\Images\statistic.ico" />
+    <Resource Include="statistic32x32.ico" />
+    <Resource Include="Presentation\Resources\Images\rooster.GIF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="splashscreen.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Presentation\Resources\Images\waiting.GIF" />
+    <Resource Include="Presentation\Resources\Images\minimize-16x16x32.png" />
+    <Resource Include="Presentation\Resources\Images\minimize.ico" />
+    <Content Include="thinkingman.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\Close.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.4.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 4.0 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="de\DevExpress.Utils.v13.2.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="de\DevExpress.Xpf.Docking.v12.2.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Services.Email\" />
+    <WCFMetadataStorage Include="Service References\Services.Forecaster\" />
+    <WCFMetadataStorage Include="Service References\Services.Promotions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Users\TFS201\CustomerRelations\CRDataStore\daisybrand.forecaster.datastores.csproj">
+      <Project>{6d16e0f6-291b-4b59-b646-739bfc90c4e9}</Project>
+      <Name>daisybrand.forecaster.datastores</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

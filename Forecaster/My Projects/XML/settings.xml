@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Settings>
+    <EMPLID>mseifi</EMPLID>
+    <SAFETY_STOCK_DAYS>
+      <SafetyStockDay>
+        <DC>1841</DC>
+        <SKU>rda16</SKU>
+        <DAYS>5</DAYS>
+      </SafetyStockDay>
+    </SAFETY_STOCK_DAYS>
+  </Settings>
+</ArrayOfSettings>

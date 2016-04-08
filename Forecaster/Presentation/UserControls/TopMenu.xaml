@@ -1,0 +1,123 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+			 xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+			 xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+			 xmlns:dxbt="http://schemas.devexpress.com/winfx/2008/xaml/bars/themekeys"
+			 xmlns:ViewModels="clr-namespace:daisybrand.forecaster.Controlers.ViewModels"
+			 xmlns:converters="clr-namespace:daisybrand.forecaster.Converters"
+             xmlns:controls="clr-namespace:daisybrand.forecaster.Controls"
+			 x:Class="daisybrand.forecaster.Presentation.UserControls.TopMenu"
+			 mc:Ignorable="d"
+			 Loaded="UserControl_Loaded">
+	<UserControl.Resources>
+		<converters:CustomerConverter x:Key="customerConverter"/>
+		<converters:MultiBoolConverter x:Key="multiBoolConverter" />
+        <Style TargetType="dxb:BarEditItemLinkControl">
+            <EventSetter Event="PreviewMouseDoubleClick"
+                         Handler="SEARCH_BY_CUSTOMER_BAR_EDIT_ITEM_LINK_PreviewMouseDoubleClick" />
+        </Style>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<ViewModels:TopMenu/>
+	</UserControl.DataContext>
+    <controls:_BarManger x:Name="BAR_MANGER"
+                         Loaded="BAR_MANGER_Loaded"
+                         CreateStandardLayout="True"
+                         AllowCustomization="False"
+                         AllowHotCustomization="False">
+        <dxb:BarManager.Resources>
+            <ResourceDictionary>
+
+                <ControlTemplate x:Key="{dxbt:BarContainerControlThemeKey ResourceKey=BackgroundTemplate}"
+                                 TargetType="{x:Type ContentControl}">
+                    <Border x:Name="Background"
+                            Background="Transparent">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Border>
+                </ControlTemplate>
+            </ResourceDictionary>
+        </dxb:BarManager.Resources>
+        <dxb:BarManager.Items>
+
+
+
+            <!--Tools-->
+            <dxb:BarEditItem x:Name="SEARCH_BY_CUSTOMER"
+                             EditValueChanged="SEARCH_BY_CUSTOMER_EditValueChanged"
+                             EditValue="{Binding SEARCH_VALUE}"
+                             Content="Search"
+                             EditWidth="250"
+                             Alignment="Far">
+
+                <dxb:BarEditItem.EditSettings>
+                    <dxe:ComboBoxEditSettings x:Name="SEARCH_BY_CUSTOMER_COMBO"
+                                              ItemsSource="{Binding CUSTOMERS}"
+                                              FilterCondition="Contains"
+                                              IsTextEditable="True"
+                                              AutoComplete="False"
+                                              ValidateOnTextInput="False"
+                                              DisplayMember="DISPLAY_VALUE"
+                                              ValueMember="SELECTED_VALUE"
+                                              IncrementalFiltering="True"
+                                              ImmediatePopup="True" />
+                </dxb:BarEditItem.EditSettings>
+            </dxb:BarEditItem>
+           
+            <!--Far right-->
+            <dxb:BarSubItem x:Name="staticMinimize"
+                            Alignment="Far"
+                            Glyph="/daisybrand.forecaster;component/Presentation/Resources/Images/minimize.ico"
+                            ItemClick="staticMinimize_ItemClick" />
+            <dxb:BarSubItem x:Name="staticMaximize"
+                            Alignment="Far"
+                            Glyph="/daisybrand.forecaster;component/Presentation/Resources/Images/maximize.ico"
+                            ItemClick="staticMaximize_ItemClick" />
+            <dxb:BarSubItem x:Name="staticClose"
+                            Alignment="Far"
+                            Glyph="/daisybrand.forecaster;component/Presentation/Resources/Images/Close.ico"
+                            ItemClick="staticClose_ItemClick" />
+        </dxb:BarManager.Items>
+        <dxb:BarManager.Bars>
+           
+            <dxb:Bar Caption="Top Menu"
+                     IsMainMenu="True"
+                     BarItemsAlignment="Far"
+                     UseWholeRow="True">
+                <dxb:Bar.DockInfo>
+                    <dxb:BarDockInfo ContainerType="Top" />
+                </dxb:Bar.DockInfo>
+                <dxb:BarEditItemLink x:Name="SEARCH_BY_CUSTOMER_BAR_EDIT_ITEM_LINK"
+                                     BarItemName="SEARCH_BY_CUSTOMER"
+                                      />
+                <dxb:BarItemLinkSeparator BarItemName="" />
+                <dxb:BarSubItemLink 
+                                    BarItemName="staticMinimize" />
+                <dxb:BarSubItemLink 
+                                    BarItemName="staticMaximize" />
+                <dxb:BarSubItemLink 
+                                    BarItemName="staticClose" />
+            </dxb:Bar>
+        </dxb:BarManager.Bars>
+        <DockPanel x:Name="dockPanel1">
+            <Image Width="55" DockPanel.Dock="Left"
+                   Source="/daisybrand.forecaster;component/Presentation/Resources/Images/logo2.png"
+                   Cursor="Hand"
+                   MouseDown="Image_MouseDown" />
+            <Label Content="{Binding TITLE}" DockPanel.Dock="Left"
+                   Style="{DynamicResource FORECASTER}" />
+            <Label x:Name="version" DockPanel.Dock="Left"
+                   Content="{Binding APPLICATION_VERSION}"
+                   Style="{DynamicResource VERSION}" />
+
+            <Label x:Name="TOPTEXT" DockPanel.Dock="Left"
+                   Content="{Binding Path=TOPTEXT}"
+                   Style="{StaticResource TOPTEXT}" />
+            <dxb:BarContainerControl x:Name="TopBarContainer"
+                                     ContainerType="Top"
+                                     DockPanel.Dock="Right" />
+        </DockPanel>
+    </controls:_BarManger>
+</UserControl>

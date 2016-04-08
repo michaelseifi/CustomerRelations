@@ -1,0 +1,1 @@
+Data Source=dbimrcmsrv02;Initial Catalog=forecaster;Integrated Security=True;Connect Timeout=300

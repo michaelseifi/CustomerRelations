@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/AA_Forecaster.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AA_Forecaster.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="FORECASTER_CUSTOMER_SETTINGS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COMMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOMER_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ENTERED_BY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LAST_UPDATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LINK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORTING_DAYS" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="REPORTING_END" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORTING_START" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STORE_COUNT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WILL_COVER_ORDER_DATE" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FORECASTER_CUSTOMER_SETTINGS" nillable="true" type="tns:FORECASTER_CUSTOMER_SETTINGS" />
+  <xs:complexType name="ArrayOfVMI_Get_Customers_SkuIds_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VMI_Get_Customers_SkuIds_Result" nillable="true" type="tns:VMI_Get_Customers_SkuIds_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVMI_Get_Customers_SkuIds_Result" nillable="true" type="tns:ArrayOfVMI_Get_Customers_SkuIds_Result" />
+  <xs:complexType name="VMI_Get_Customers_SkuIds_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ItemUPC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToTP" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VMI_Get_Customers_SkuIds_Result" nillable="true" type="tns:VMI_Get_Customers_SkuIds_Result" />
+  <xs:complexType name="ArrayOfFORECASTER_KROGER_SALES_QTY_CASES">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FORECASTER_KROGER_SALES_QTY_CASES" nillable="true" type="tns:FORECASTER_KROGER_SALES_QTY_CASES" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFORECASTER_KROGER_SALES_QTY_CASES" nillable="true" type="tns:ArrayOfFORECASTER_KROGER_SALES_QTY_CASES" />
+  <xs:complexType name="FORECASTER_KROGER_SALES_QTY_CASES">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DivisionNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="SKU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalesQuantityCases" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FORECASTER_KROGER_SALES_QTY_CASES" nillable="true" type="tns:FORECASTER_KROGER_SALES_QTY_CASES" />
+</xs:schema>

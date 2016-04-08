@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="daisybrand.forecaster.Presentation.UserControls.Volatility"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:converters="clr-namespace:daisybrand.forecaster.Converters"
+             Loaded="UserControl_Loaded"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <converters:ToPercentageConverter x:Key="toPercentageConverter"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="10,0,5,0"/>
+        </Style>
+        <Style x:Key="header" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Margin="5">
+        <Border BorderThickness="0,0,0,1" BorderBrush="Black" >
+            <StackPanel Orientation="Horizontal">        
+                <TextBlock Text="QS Volatility (Std Deviation/Average)" FontSize="15"/>        
+            </StackPanel>
+        </Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <!--<RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>-->
+            </Grid.RowDefinitions>
+            <TextBlock Text="Volatility:" Style="{StaticResource header}" Grid.Column="0" Grid.Row="0"/>
+            <TextBlock x:Name="VOLATILITY_TXB" Text="{Binding QS_VOLATILITY, Converter={StaticResource toPercentageConverter}}" Grid.Column="1" Grid.Row="0" />
+
+            <TextBlock Text="StdDevSample:"  Style="{StaticResource header}" Grid.Column="0" Grid.Row="1"/>
+            <TextBlock x:Name="S_STANDARD_DEV_TXB" Text="{Binding QS_STANDARD_DEVIATION_S}"  Grid.Column="1" Grid.Row="1"/>
+            
+            <!--<TextBlock Text="Sum:" Style="{StaticResource header}" Grid.Column="0" Grid.Row="1"/>
+            <TextBlock x:Name="SUM_TXB" Text="{Binding QS_SUM}" Grid.Column="1" Grid.Row="1"/>-->
+            
+            <TextBlock Text="Average:"  Style="{StaticResource header}" Grid.Column="0" Grid.Row="2"/>
+            <TextBlock x:Name="AVERAGE_TXB" Text="{Binding QS_AVERAGE}" Grid.Column="1" Grid.Row="2"/>
+            
+            <!--<TextBlock Text="VarianceSample:" Style="{StaticResource header}" Grid.Column="0" Grid.Row="3"/>
+            <TextBlock x:Name="S_VARIANCE_TXB" Text="{Binding QS_VARIANCE_S}" Grid.Column="1" Grid.Row="3"/>
+            
+            
+            
+            <TextBlock Text="VariancePopulation:" Style="{StaticResource header}" Grid.Column="0" Grid.Row="5"/>
+            <TextBlock x:Name="P_VARIANCE_TXB" Text="{Binding QS_VARIANCE_P}" Grid.Column="1" Grid.Row="5"/>
+            
+            <TextBlock Text="StdDevPopulation:" Style="{StaticResource header}" Grid.Column="0" Grid.Row="6"/>
+            <TextBlock x:Name="P_STANDARD_DEV_TXB" Text="{Binding QS_STANDARD_DEVIATION_P}" Grid.Column="1" Grid.Row="6" />-->
+            
+            <StackPanel Grid.Column="2" Grid.RowSpan="8" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <TextBlock Text="Number of weeks:" HorizontalAlignment="Center" Style="{StaticResource header}" Margin="0,0,0,5"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Name="NUMBER_OF_WEEKS_TXB" Text="{Binding VOLATILITY_NUMBER_OF_WEEKS, Mode=OneWay}" Width="25" MaxLength="2"
+                             TextChanged="NUMBER_OF_WEEKS_TXB_TextChanged" LostKeyboardFocus="NUMBER_OF_WEEKS_TXB_LostKeyboardFocus"/>
+                    <Button Name="NUMBER_OF_WEEKS_BTN" Content="GO" Click="NUMBER_OF_WEEKS_BTN_Click" HorizontalAlignment="Center" Margin="5,0"/>
+                </StackPanel>                
+             <!--<toolkit:IntegerUpDown Value="{Binding VOLATILITY_NUMBER_OF_WEEKS, Mode=TwoWay}" 
+                                       Maximum="52" Minimum="1" Increment="1" HorizontalAlignment="Center"
+                                       ValueChanged="IntegerUpDown_ValueChanged"/>-->
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</UserControl>

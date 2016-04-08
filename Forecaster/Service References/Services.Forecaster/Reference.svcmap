@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="91b9ff05-fff9-48a9-875b-4ab7ae914c8c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="898a8c6a-b49b-47f4-bf02-fbe89d5b333f" SourceId="1" SourceUrl="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6e95d3a2-36d1-4183-9d68-d4d90ab47df1" SourceId="1" SourceUrl="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="afb1c73d-a29e-4cc1-9af3-26f4e73018e0" SourceId="1" SourceUrl="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" />
+    <MetadataFile FileName="AA_Forecaster.Model.xsd" MetadataType="Schema" ID="2d745ede-46e6-4fce-8a6b-529420f91de1" SourceId="1" SourceUrl="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="a0eb01fc-f907-4aa1-83c2-1eb60d13b013" SourceId="1" SourceUrl="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" />
+    <MetadataFile FileName="AA_Forecaster.Entities.xsd" MetadataType="Schema" ID="621b3260-bcb8-4af4-a542-4f5d6db5f89a" SourceId="1" SourceUrl="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="e1b80a3f-2cac-4c83-8d5b-fceba3ff859c" SourceId="1" SourceUrl="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" />
+    <MetadataFile FileName="AA_Forecaster.xsd" MetadataType="Schema" ID="b892fcaf-da32-4a4c-8996-4f611ed711da" SourceId="1" SourceUrl="net.tcp://coreutilsrv01:15112/AA_Forecaster/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

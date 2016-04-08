@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="daisybrand.forecaster.Presentation.UserControls.Tabs"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Converters="clr-namespace:daisybrand.forecaster.Converters"
+             mc:Ignorable="d" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Converters:VisibilityConverter x:Key="VisibilityConverter" />
+        <DataTemplate x:Key="TabItemContentTemplate" >
+            <Border x:Name="TAB_ITEM_BORDER" BorderBrush="{StaticResource solidOrange}" BorderThickness="2">
+                <ContentControl Content="{Binding CONTENT}"/>
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                    <Setter Property="Panel.ZIndex" Value="100" />
+                    <Setter TargetName="TAB_ITEM_BORDER" Property="Background" Value="{StaticResource solidOrange}" />
+
+                    <!--<Setter Property="Style">
+                        <Setter.Value>
+                            <Style TargetType="{x:Type TabPanel}">
+                                <Setter Property="Background" Value="{StaticResource solidOrange}"/>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>-->
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TabHeaderTemplate">
+            <Grid x:Name="headerGrid" Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />                    
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Reset forecasts"
+                                      x:Name="RESET_FORECAST"
+                                      Click="RESET_FORECAST_Click" />
+                        </ContextMenu>
+                    </StackPanel.ContextMenu>
+                    <Image Source="{DynamicResource error}"
+                           Width="12"
+                           Height="12" 
+                           Visibility="{Binding HAS_ERROR, Converter={StaticResource VisibilityConverter}}">
+                        <Image.ToolTip>
+                            <ToolTip>
+                                <TextBlock Text="{Binding ERROR_COMMENT}" />
+                            </ToolTip>
+                        </Image.ToolTip>
+                    </Image>
+                    <TextBlock x:Name="headerText"
+                               Margin="0"
+                               Padding="0"
+                               Text="{Binding CAPTION}"
+                               ContextMenuOpening="headerText_ContextMenuOpening"
+                               Grid.Column="0" />
+                </StackPanel>
+               
+                <!--<TextBlock x:Name="headerText" Margin="0" Padding="0" Text="{Binding CAPTION}" ContextMenuOpening="headerText_ContextMenuOpening" Grid.Column="0">
+                    <TextBlock.ContextMenu>
+                        <ContextMenu>
+                            --><!--<MenuItem Header="Refresh" x:Name="REFRESH_TAB_BTN" Click="REFRESH_TAB_BTN_Click"/>--><!--
+                            <MenuItem Header="Reset forecasts" x:Name="RESET_FORECAST" Click="RESET_FORECAST_Click" />
+                        </ContextMenu>
+                    </TextBlock.ContextMenu>
+                </TextBlock>-->                
+            </Grid>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TabItem}},Path=IsSelected}" Value="True">
+                    <!--<Setter TargetName="headerGrid" Property="Background" Value="{StaticResource solidOrange}"/>-->
+                    <Setter TargetName="headerText" Property="Foreground" Value="{StaticResource solidOrange}"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Panel.ZIndex="200">
+            <ContentControl x:Name="SKU_ITEM_NUM" Loaded="SKU_ITEM_NUM_Loaded" Grid.Row="0" />
+        </StackPanel>
+        <TabControl x:Name="TABS" Grid.Row="1"
+                    SelectedIndex="0"
+                    BorderThickness="0"
+                    HorizontalContentAlignment="Stretch"
+                    Margin="0, -18,0,0"
+                    SelectionChanged="TABS_SelectionChanged"
+                    Loaded="TABS_Loaded">
+            <TabControl.Resources>
+
+            </TabControl.Resources>
+
+            <!--<TabControl.Items>
+                <TabItem Header="hello" />
+            </TabControl.Items>-->
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="HeaderTemplate"
+                            Value="{StaticResource TabHeaderTemplate}" />
+                    <Setter Property="Content"
+                            Value="{Binding}" />
+                    <Setter Property="ContentTemplate"
+                            Value="{StaticResource TabItemContentTemplate}" />
+                    <Setter Property="IsEnabled"
+                            Value="{Binding Isloaded}" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected"
+                                 Value="True">
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </TabControl.ItemContainerStyle>
+        </TabControl>
+    </Grid>
+</UserControl>

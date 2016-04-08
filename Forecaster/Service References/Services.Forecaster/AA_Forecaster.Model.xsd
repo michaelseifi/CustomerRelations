@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AA_Forecaster.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AA_Forecaster.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/AA_Forecaster.Entities" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element name="_A_PULLS_FROM_CURRENT_FORECAST" type="xs:decimal" />
+      <xs:element name="_x003C_ACCOUTNNUM_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_B_SECOND_WEEK_FORECAST_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_CURRENT_FORECAST_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_CUSTOMER_ID_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_C_THIRD_WEEK_FORECAST_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" name="_x003C_DAYS_IN_WEEK_x003E_k__BackingField" nillable="true" type="q1:ArrayOfDayOfWeek" />
+      <xs:element name="_x003C_DELIVERY_DATE_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_FIFTH_WEEK_FORECAST_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_FORMULA_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_FORTH_WEEK_FORECAST_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_H_ON_HAND_DAY_OF_ORDER_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_III_DAYS_QS_INCLUDING_AND_AFTER_ORDER_DAY_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_II_DAYS_852_IS_REPORTED_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_IV_DAYS_QS_BEFORE_AND_INCLUDING_ORDER_DELIVERY_DAY_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_I_ON_ORDER_DAY_OF_ORDER_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_I_SAFETY_STOCK_DAYS_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_ORDER_DATE_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_ORDER_TO_DELIVERY_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_QS_UP_TO_DATE_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_SAFETY_STOCK_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AA_Forecaster.Entities" name="_x003C_SETTING_x003E_k__BackingField" nillable="true" type="q2:FORECASTER_CUSTOMER_SETTINGS" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AA_Forecaster.Entities" name="_x003C_SKUS_x003E_k__BackingField" nillable="true" type="q3:ArrayOfVMI_Get_Customers_SkuIds_Result" />
+      <xs:element name="_x003C_SKU_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="_x003C_SUGGESTED_ORDERS_x003E_k__BackingField" nillable="true" type="q4:ArrayOfKeyValueOfstringdecimal" />
+      <xs:element name="_x003C_SUGGESTED_ORDER_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_V_DAYS_QS_AFTER_ORDER_DELIVERY_DAY_AT_DC_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_WILL_COVER_OREDER_DATE_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+</xs:schema>

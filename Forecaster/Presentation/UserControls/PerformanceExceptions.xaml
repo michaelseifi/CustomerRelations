@@ -1,0 +1,246 @@
+﻿<UserControl x:Class="daisybrand.forecaster.Presentation.UserControls.PerformanceExceptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:collections="clr-namespace:daisybrand.forecaster.Controlers.Collections"  
+             xmlns:enums="clr-namespace:daisybrand.forecaster.Controlers.Enums"
+             xmlns:converters="clr-namespace:daisybrand.forecaster.Converters"
+             xmlns:validations="clr-namespace:daisybrand.forecaster.Validations"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" 
+             d:DesignHeight="300" >
+    <UserControl.Resources>        
+        <x:Array x:Key="TypeListString" Type="collections:TypeItemString">
+            <collections:TypeItemString VALUE="TPR"/>
+            <collections:TypeItemString VALUE="AD"/>
+        </x:Array>
+        
+        <ObjectDataProvider x:Key="DStateProvider"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:DState" />
+            </ObjectDataProvider.MethodParameters>    
+        </ObjectDataProvider>
+        <x:Array x:Key="DState"
+                 Type="enums:DStateItemString">
+            <enums:DStateItemString VALUE="None" />
+            <enums:DStateItemString VALUE="Check" />
+            <enums:DStateItemString VALUE="Confirmed" />
+        </x:Array>
+        <x:Array x:Key="MState"
+                 Type="enums:MStateItemString">            
+            <enums:MStateItemString VALUE="Confirmed" />
+            <enums:MStateItemString VALUE="DidNotKnow" />
+        </x:Array>
+        <converters:VisibilityConverter x:Key="visibilityConverter" />
+        <converters:VisibilityReversalConverter x:Key="visibilityReversalConverter" />
+        <converters:PerformanceMStateConverter x:Key="performanceMStateConverter" />
+        <converters:PerformanceDStateConverter x:Key="performanceDStateConverter" />
+        <DataTemplate x:Key="CellStartDateTemplate">
+            <TextBlock Text="{Binding Path=FROM, StringFormat=d}" />
+        </DataTemplate>
+        <DataTemplate x:Key="CellEndDateTemplate">
+            <TextBlock Text="{Binding Path=TO, StringFormat=d}" />
+        </DataTemplate>
+        <DataTemplate x:Key="CellStartEditingDateTemplate">
+            <DatePicker SelectedDate="{Binding Path=FROM, UpdateSourceTrigger=PropertyChanged}" Loaded="DatePicker_Loaded"/>
+        </DataTemplate>
+        <DataTemplate x:Key="CellEndEditingDateTemplate">
+            <DatePicker SelectedDate="{Binding Path=TO, UpdateSourceTrigger=PropertyChanged}" Loaded="DatePicker_Loaded"/>
+        </DataTemplate>
+        <DataTemplate x:Key="CellQuantityEditingTemplate">
+            <TextBox Text="{Binding Path=QUANTITY, UpdateSourceTrigger=PropertyChanged}" AcceptsTab="True" AcceptsReturn="True" />
+        </DataTemplate>
+        <DataTemplate x:Key="CellQuantityTemplate">
+            <TextBlock Text="{Binding Path=QUANTITY}" />
+        </DataTemplate>
+        <DataTemplate x:Key="CellPriceEdintingTemplate">
+            <TextBox> <!--Text="{Binding Path=PRICE, UpdateSourceTrigger=PropertyChanged}">-->
+                <TextBox.Text>
+                    <Binding Path="PRICE" UpdateSourceTrigger="PropertyChanged" StringFormat="N2">
+                        <Binding.ValidationRules>
+                            <validations:DecimalValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </DataTemplate>
+        <DataTemplate x:Key="CellPriceTemplate">
+            <TextBlock Text="{Binding Path=PRICE}" />
+        </DataTemplate>
+        
+        <DataTemplate x:Key="CellTypeTextTemplate">
+            <TextBlock Text="{Binding Path=TYPE}" />
+        </DataTemplate>
+        <DataTemplate x:Key="CellTypeTemplate">           
+            <!--<ComboBox ItemsSource="{Binding  Path=TypeEnum}" />--> <!--SelectedValue="{Binding Path=FORECASTER_PERFORMANCES_TYPES}"/>-->
+            <ComboBox ItemsSource="{Binding  Path=TypeArray}" SelectedValue="{Binding Path=TYPE}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="CellTypeEditingTemplate" >
+            <ComboBox ItemsSource="{StaticResource  TypeListString}" 
+                      SelectedValue="{Binding Path=TYPE, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      SelectedValuePath="VALUE"
+                      DisplayMemberPath="VALUE"/>            
+        </DataTemplate>
+
+        <DataTemplate x:Key="CellDStateTextTemplate">
+            <TextBlock Text="{Binding Path=D_STATE}" />
+        </DataTemplate>
+        <DataTemplate x:Key="CellDStateEditingTemplate">
+            <ComboBox x:Name="DStateCbbx"
+                      ItemsSource="{StaticResource DState}"
+                      SelectedIndex="{Binding D_STATE, Converter={StaticResource performanceDStateConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedValuePath="VALUE"
+                      DisplayMemberPath="VALUE"
+                      SelectionChanged="DStateCbbx_SelectionChanged" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="CellMStateTextTemplate">
+            <TextBlock Text="{Binding Path=STATE ,Converter={StaticResource performanceMStateConverter}}" />
+        </DataTemplate>
+        <DataTemplate x:Key="CellMStateEditingTemplate">
+            <ComboBox x:Name="MStateCbbx"
+                      ItemsSource="{StaticResource  MState}"
+                      SelectedValue="{Binding Path=STATE, Converter={StaticResource performanceMStateConverter},  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedValuePath="VALUE"
+                      DisplayMemberPath="VALUE"
+                      SelectionChanged="MStateCbbx_SelectionChanged" />
+        </DataTemplate>
+        
+        <DataTemplate x:Key="CellIsIncludedTemplate" >
+            <StackPanel Orientation="Horizontal" >
+                <Button x:Name="ActivateBtn" Content="Activate"  Click="ActivateBtn_Click" Visibility="{Binding Path=IS_INCLUDED, Converter={StaticResource visibilityReversalConverter}}" />
+                <Button x:Name="DeactivateBtn" Content="Deactivate"  Click="DeactivateBtn_Click" Visibility="{Binding Path=IS_INCLUDED, Converter={StaticResource visibilityConverter}}" />
+            </StackPanel>            
+            <!--<CheckBox x:Name="IsIncludedChkbx" IsChecked="{Binding Path=IS_INCLUDED, UpdateSourceTrigger=PropertyChanged}" Unchecked="IsIncludedChkbx_Unchecked" Checked="IsIncludedChkbx_Checked" />-->
+        </DataTemplate>
+        <DataTemplate x:Key="CellDescriptionTemplate">
+            <TextBlock Text="{Binding Path=DESCRIPTION}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="CellDescriptionEditTemplate">
+            <TextBox Text="{Binding Path=DESCRIPTION, UpdateSourceTrigger=PropertyChanged}" MaxLength="150" />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <DockPanel >
+            <Grid DockPanel.Dock="Top">
+                <Menu Height="25" />
+                <Menu  Height="25" HorizontalAlignment="Right"  >
+                    <MenuItem Header="Close" x:Name="CLOSE" Click="CLOSE_Click" />
+                </Menu>
+            </Grid>
+            <DataGrid DockPanel.Dock="Bottom" x:Name="CUSTOM_GRID" MaxHeight="250"
+                      AutoGenerateColumns="False" 
+                      CanUserReorderColumns="False" 
+                      CanUserSortColumns="False" 
+                      ItemsSource="{Binding}"
+                      PreviewKeyDown="CUSTOM_GRID_PreviewKeyDown" 
+                      RowEditEnding="CUSTOM_GRID_RowEditEnding" 
+                      BeginningEdit="CUSTOM_GRID_BeginningEdit" 
+                      AlternatingRowBackground="#FF819FC3" 
+                      ScrollViewer.CanContentScroll="True" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      CopyingRowClipboardContent="CUSTOM_GRID_CopyingRowClipboardContent"
+                      KeyDown="CUSTOM_GRID_KeyDown"
+                      SelectionChanged="CUSTOM_GRID_SelectionChanged"
+                      SelectionMode="Single"
+                      PreviewMouseWheel="CUSTOM_GRID_PreviewMouseWheel"
+                      Loaded="CUSTOM_GRID_Loaded"
+                      >
+               
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="START" Width="100"
+                                            CellTemplate="{StaticResource CellStartDateTemplate}"
+                                            CellEditingTemplate="{StaticResource CellStartEditingDateTemplate}"/>
+                    <DataGridTemplateColumn Header="END" Width="100"
+                                            CellTemplate="{StaticResource CellEndDateTemplate}"
+                                            CellEditingTemplate="{StaticResource CellEndEditingDateTemplate}"/>
+                    <DataGridTextColumn Binding="{Binding QUANTITY, UpdateSourceTrigger=LostFocus}" Header="QUANTITY">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding PRICE, UpdateSourceTrigger=LostFocus}" Header="PRICE">
+                        
+                    </DataGridTextColumn>
+                    <!--<DataGridTemplateColumn Header="QUANTITY" 
+                                        CellEditingTemplate="{StaticResource CellQuantityEditingTemplate}"
+                                        CellTemplate="{StaticResource CellQuantityTemplate}"/>
+                    <DataGridTemplateColumn Header="PRICE"
+                                        CellEditingTemplate="{StaticResource CellPriceEdintingTemplate}"
+                                        CellTemplate="{StaticResource CellPriceTemplate}"/>-->
+                    <!--<DataGridComboBoxColumn>
+                        
+                    </DataGridComboBoxColumn>-->
+                    <DataGridTemplateColumn Header="TYPE" 
+                                            CellTemplate="{StaticResource CellTypeTextTemplate}"
+                                            CellEditingTemplate="{StaticResource CellTypeEditingTemplate}"/>
+                    <DataGridTemplateColumn Header="STATE"
+                                            CellTemplate="{StaticResource CellMStateTextTemplate}"
+                                            CellEditingTemplate="{StaticResource CellMStateEditingTemplate}"/>
+                    <DataGridTextColumn Binding="{Binding DESCRIPTION, UpdateSourceTrigger=PropertyChanged}" Header="NOTE">
+                        <DataGridTextColumn.EditingElementStyle>
+                            <Style TargetType="TextBox">
+                                <Setter Property="MaxLength" Value="149"/>
+                                <Setter Property="MaxWidth" Value="200" />
+                            </Style>
+                        </DataGridTextColumn.EditingElementStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="Width" Value="200" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <!--<DataGridTemplateColumn Header="NOTE" Width="160"
+                                            CellTemplate="{StaticResource CellDescriptionTemplate}"
+                                            CellEditingTemplate="{StaticResource CellDescriptionEditTemplate}"/>-->
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid DockPanel.Dock="Top"
+                      x:Name="DEFAULT_GRID"
+                      AutoGenerateColumns="False"
+                      MaxHeight="250"
+                      VerticalAlignment="Top"
+                      PreviewMouseWheel="DEFAULT_GRID_PreviewMouseWheel"
+                      Loaded="DEFAULT_GRID_Loaded"
+                      SelectionChanged="DEFAULT_GRID_SelectionChanged"
+                      SelectionMode="Single"
+                      >
+                <DataGrid.Resources>
+                    <Style x:Key="RowStyle" TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type DataGridRow}">
+                                    <Border >
+                                        <ContentPresenter />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>                        
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=DOCUMENTOBJECTID}" />
+                    <DataGridTextColumn Header="START" Binding="{Binding Path=START_DATE}" Width="100"/>
+                    <DataGridTextColumn Header="END" Binding="{Binding Path=END_DATE}" Width="100"/>
+                    <DataGridTemplateColumn Header="QUANTITY" 
+                                        CellTemplate="{StaticResource CellQuantityTemplate}"/>
+                    <DataGridTemplateColumn Header="PRICE"
+                                        CellTemplate="{StaticResource CellPriceTemplate}"/>                    
+                    <DataGridTemplateColumn Header="TYPE" 
+                                        CellTemplate="{StaticResource CellTypeTextTemplate}" />
+                    <!--<DataGridTemplateColumn Header="STATE"
+                                            CellTemplate="{StaticResource CellDStateTextTemplate}" />-->
+                    <DataGridTemplateColumn Header="STATE" 
+                                            CellTemplate="{StaticResource CellDStateEditingTemplate}" />
+                    <DataGridTemplateColumn Header=""
+                                        CellTemplate="{StaticResource CellIsIncludedTemplate}"/>
+                                            
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>       
+    </Grid>
+</UserControl>

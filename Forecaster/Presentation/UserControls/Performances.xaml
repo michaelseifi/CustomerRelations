@@ -1,0 +1,35 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:subcontrols="clr-namespace:daisybrand.forecaster.Controls.SubControls"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             x:Class="daisybrand.forecaster.Presentation.UserControls.Performances"
+             mc:Ignorable="d" >
+    <subcontrols:_GridControl_Performance
+		x:Name="PERFORMANCE_GRID"
+		ScrollViewer.CanContentScroll="True" 
+		ScrollViewer.HorizontalScrollBarVisibility="Auto"
+		ScrollViewer.VerticalScrollBarVisibility="Auto"
+		HorizontalAlignment="Stretch"                         
+		VerticalAlignment="Top"
+		AutoPopulateColumns="False"		
+        >
+        <subcontrols:_GridControl_Performance.Columns>
+            <dxg:GridColumn x:Name="DOCUMENTOBJECTID" FieldName="DOCUMENTOBJECTID" ReadOnly="True" Visible="False"/>
+            <dxg:GridColumn x:Name="PROMOTION_NUMBER" FieldName="PROMOTION_NUMBER" ReadOnly="True" Header="PROMOTION"/>
+            <dxg:GridColumn x:Name="START_DATE" FieldName="START_DATE" ReadOnly="True" Header="START DATE"/>
+            <dxg:GridColumn x:Name="END_DATE" FieldName="END_DATE" ReadOnly="True" Header="END DATE" />
+            <dxg:GridColumn x:Name="PERFORMANCE_TYPE" FieldName="PERFORMANCE_TYPE" ReadOnly="True" Header="TYPE"/>
+            <dxg:GridColumn x:Name="QUANTITY" FieldName="QUANTITY" Header="QUANTITY"/>
+            <dxg:GridColumn x:Name="PRICE" FieldName="PRICE" Header="PRICE" />
+            <dxg:GridColumn x:Name="IS_CONFIRMED" FieldName="IS_CONFIRMED" ReadOnly="True" Header="IS_CONFIRMED" />
+            <dxg:GridColumn x:Name="CONFIRMED_DATE" FieldName="CONFIRMED_DATE_STR" ReadOnly="True" Header="CONFIRMED DATE"/>
+            <dxg:GridColumn x:Name="CONFIRMED_BY" FieldName="CONFIRMED_BY" ReadOnly="True" Header="CONFIRMED BY"/>
+        </subcontrols:_GridControl_Performance.Columns>
+
+    </subcontrols:_GridControl_Performance>
+</UserControl>

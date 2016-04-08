@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forecaster", "Forecaster.csproj", "{62E542B2-5FF4-4474-A751-7EFCF8681455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRDataStore3", "..\CRDataStore\CRDataStore3.csproj", "{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug with prod tables|Any CPU = Debug with prod tables|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release with test tables|Any CPU = Release with test tables|Any CPU
+		Release(test)|Any CPU = Release(test)|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Test(with prod data)|Any CPU = Test(with prod data)|Any CPU
+		Test(with test data)|Any CPU = Test(with test data)|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Debug with prod tables|Any CPU.ActiveCfg = Debug with prod tables|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Debug with prod tables|Any CPU.Build.0 = Debug with prod tables|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Release with test tables|Any CPU.ActiveCfg = Release with test tables|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Release with test tables|Any CPU.Build.0 = Release with test tables|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Release(test)|Any CPU.ActiveCfg = Release(test)|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Release(test)|Any CPU.Build.0 = Release(test)|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Test(with prod data)|Any CPU.ActiveCfg = Release|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Test(with prod data)|Any CPU.Build.0 = Release|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Test(with test data)|Any CPU.ActiveCfg = Release|Any CPU
+		{62E542B2-5FF4-4474-A751-7EFCF8681455}.Test(with test data)|Any CPU.Build.0 = Release|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Debug with prod tables|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Debug with prod tables|Any CPU.Build.0 = Debug|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Release with test tables|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Release with test tables|Any CPU.Build.0 = Debug|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Release(test)|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Release(test)|Any CPU.Build.0 = Release|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Test(with prod data)|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Test(with prod data)|Any CPU.Build.0 = Release|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Test(with test data)|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C7EBC6-5DCA-42D3-8C20-6AF85624BDD1}.Test(with test data)|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://coretfsvm1:8080/tfs/customerrelations
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Forecaster.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\CRDataStore\\CRDataStore3.csproj
+		SccProjectName2 = ../CRDataStore
+		SccLocalPath2 = ..\\CRDataStore
+	EndGlobalSection
+EndGlobal

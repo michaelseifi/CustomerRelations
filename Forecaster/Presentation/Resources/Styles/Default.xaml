@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gif="http://wpfanimatedgif.codeplex.com">
+    <SolidColorBrush x:Key="darkblue" Color="#145C85" />
+    <SolidColorBrush x:Key="solidOrange" Color="Orange" />
+    <SolidColorBrush x:Key="QSLine" Color="DarkRed" />
+    <SolidColorBrush x:Key="QALine" Color="DarkBlue" />
+    <SolidColorBrush x:Key="QOLine" Color="Red" />
+    <SolidColorBrush x:Key="OrderLine" Color="DarkBlue" />
+    <SolidColorBrush x:Key="POSLine" Color="#B81B0B" />
+    <SolidColorBrush x:Key="PROMOTPRLine" Color="LightBlue" />
+    <SolidColorBrush x:Key="PROMOADLine" Color="LightGreen" />
+    
+    <Image Source="../Images/waiting.gif" x:Key="waitingImage" Height="64" Width="32" />
+    <BitmapImage UriSource="../Images/foreward.png" x:Key="foreward" />
+    <BitmapImage UriSource="../Images/backward.png" x:Key="backward" />
+    <BitmapImage UriSource="../Images/Statistic.png"
+                 x:Key="statistic"/>
+    <BitmapImage x:Key="logo" UriSource="pack://application:,,,/Presentation/Resources/Images/logo2.png"/>
+    <BitmapImage x:Key="readOnly" UriSource="pack://application:,,,/Presentation/Resources/Images/RightsRestrictedHS.png"/>
+    <BitmapImage x:Key="refresh"
+                 UriSource="pack://application:,,,/Presentation/Resources/Images/Refresh.ico" />
+    <BitmapImage x:Key="error"
+                 UriSource="pack://application:,,,/Presentation/Resources/Images/error.png" />
+    <BitmapImage x:Key="annotation"
+                 UriSource="pack://application:,,,/Presentation/Resources/Images/Annotate_Warning.ico" />
+
+    <LinearGradientBrush x:Key="brandColor" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#BFDBFF" Offset="0.286"/>
+        <GradientStop Color="White" Offset="1"/>
+        <GradientStop Color="#FFF3F2F2" Offset="0.018"/>
+        <GradientStop Color="#BFDBFF" Offset="0.714"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="commentColor"
+                         EndPoint="0.5,1"
+                         StartPoint="0.5,0">
+        <GradientStop Color="#FFF58907"
+                      Offset="0.286" />
+        <GradientStop Color="White"
+                      Offset="1" />
+        <GradientStop Color="#FFF3F2F2"
+                      Offset="0.018" />
+        <GradientStop Color="#FFF58907"
+                      Offset="0.714" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="lgreen" Color="LightGreen"/>
+    <SolidColorBrush x:Key="lblue" Color="LightBlue"/>
+    <SolidColorBrush x:Key="aqua" Color="Aquamarine"/>
+    <RadialGradientBrush x:Key="coral"  MappingMode="RelativeToBoundingBox" 
+                         Center="0.8,0.8"
+                         GradientOrigin="1,1"
+                         RadiusX="0.4"
+                         RadiusY="0.4">
+        <GradientStop Color="Transparent" Offset="1"/>
+        <GradientStop Color="#FFF54706" Offset="0"/>
+    </RadialGradientBrush>
+
+ 
+    <Style x:Key="TOPTEXT" TargetType="{x:Type Label}">        
+        <Setter Property="Foreground" Value="{StaticResource darkblue}" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Height"
+                Value="25" />
+    </Style>
+    <Style x:Key="VERSION" TargetType="{x:Type Label}">
+        <Setter Property="Margin" Value="2,2,5,0"/>
+        <Setter Property="Foreground" Value="{StaticResource darkblue}" />
+        <Setter Property="FontSize" Value="9" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="FORECASTER" TargetType="{x:Type Label}">
+        <Setter Property="Margin" Value="-1,1,5,0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{StaticResource darkblue}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="MESSAGE" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="Red" />        
+    </Style>
+</ResourceDictionary>

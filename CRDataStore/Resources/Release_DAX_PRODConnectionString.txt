@@ -1,0 +1,1 @@
+Data Source=CORESQL01;Initial Catalog=DAX_PROD;Integrated Security=True;Connect Timeout=300

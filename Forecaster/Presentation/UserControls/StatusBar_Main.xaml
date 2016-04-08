@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="daisybrand.forecaster.Presentation.UserControls.StatusBar_Main"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" MinWidth="500"
+             Loaded="UserControl_Loaded">
+    
+        <StatusBar DockPanel.Dock="Bottom"   Background="{x:Null}" >
+            <StatusBarItem HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Padding="5,3,3,5">           
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+                    <TextBlock  Grid.Column="0" HorizontalAlignment="Left">
+                        <Hyperlink x:Name="link" NavigateUri="{Binding ADD_URL}" RequestNavigate="Hyperlink_RequestNavigate">
+                            <TextBlock Text="{Binding ADD_URL, Mode=OneWay}"/>
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                    <TextBlock   FontWeight="Bold" Grid.Column="1" Text="{Binding TEXT}" HorizontalAlignment="Right" />
+                    <!--Text="{Binding TEXT}" />-->
+                </StackPanel>
+
+                    
+                   
+                </Grid>
+            
+               
+            </StatusBarItem>
+        </StatusBar>
+    
+</UserControl>

@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="daisybrand.forecaster.Presentation.UserControls.Icons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:daisybrand.forecaster.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:VisibilityConverter x:Key="visibilityConverter" />
+    </UserControl.Resources>
+    <StackPanel Margin="10,0" MinHeight="22" Orientation="Horizontal">
+        <!--<Label x:Name="TOPTEXT"
+                               Content="{Binding Path=TOPTEXT}"
+                               Style="{StaticResource TOPTEXT}"
+                               DockPanel.Dock="Top" />-->
+        <Image Source="{DynamicResource readOnly}"
+               Width="16"
+               Visibility="{Binding IsReadOnly, Converter={StaticResource visibilityConverter}, ConverterParameter=collapse}"
+               ToolTip="In read only" />
+        <Image Width="16"
+               Source="{DynamicResource refresh}"
+               Visibility="{Binding IsActualOrderRereshing, Converter={StaticResource visibilityConverter}, ConverterParameter=collapse}"
+               ToolTip="Data is refreshing" />
+        <Image Width="16"
+               x:Name="CUSTOMER_HAS_COMMENT"
+               Source="{DynamicResource annotation}"
+               Visibility="{Binding IsThereCustomerComment, Converter={StaticResource visibilityConverter}, ConverterParameter=collapse}"
+               Cursor="Hand"
+               MouseDown="CUSTOMER_HAS_COMMENT_MouseDown"
+               ToolTip="Customer has comments. Click to view." />
+    </StackPanel>
+</UserControl>

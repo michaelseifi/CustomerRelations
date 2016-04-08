@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DaisyDWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="FORECASTER_Get_KrogerPOSData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DIVISION_NUMBER" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DaisyDWModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DaisyDWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DaisyDWEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="FORECASTER_Get_KrogerPOSData" ReturnType="Collection(DaisyDWModel.FORECASTER_Get_KrogerPOSData_Result)">
+            <Parameter Name="DIVISION_NUMBER" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="FORECASTER_Get_KrogerPOSData_Result">
+          <Property Type="String" Name="KrogerDivisionName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="KrogerDivisionNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SKU" Nullable="true" MaxLength="12" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="Decimal" Name="SalesQuantityUnits" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="SalesQuantityCases" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="Decimal" Name="AverageUnitPrice" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="SalesAmountDollars" Nullable="true" Precision="19" />
+          <Property Type="String" Name="BKStoreNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DaisyDWModelStoreContainer" CdmEntityContainer="DaisyDWEntities" >
+          <FunctionImportMapping FunctionImportName="FORECASTER_Get_KrogerPOSData" FunctionName="DaisyDWModel.Store.FORECASTER_Get_KrogerPOSData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DaisyDWModel.FORECASTER_Get_KrogerPOSData_Result">
+                <ScalarProperty Name="KrogerDivisionName" ColumnName="KrogerDivisionName" />
+                <ScalarProperty Name="KrogerDivisionNumber" ColumnName="KrogerDivisionNumber" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SalesQuantityUnits" ColumnName="SalesQuantityUnits" />
+                <ScalarProperty Name="SalesQuantityCases" ColumnName="SalesQuantityCases" />
+                <ScalarProperty Name="AverageUnitPrice" ColumnName="AverageUnitPrice" />
+                <ScalarProperty Name="SalesAmountDollars" ColumnName="SalesAmountDollars" />
+                <ScalarProperty Name="BKStoreNumber" ColumnName="BKStoreNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

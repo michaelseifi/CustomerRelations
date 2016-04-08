@@ -1,0 +1,30 @@
+﻿<Window x:Class="daisybrand.forecaster.Presentation.Views.CellComment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CellComment" Height="300" Width="300" WindowStyle="None">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" >
+            <StatusBar DockPanel.Dock="Top">
+                <DockPanel>                     
+                    <Button x:Name="CLOSE_IMG_BTN" Click="CLOSE_Click" DockPanel.Dock="Right"  Background="Transparent" HorizontalContentAlignment="Right">
+                        <Image x:Name="CLOSE_IMG" Source="/daisybrand.forecaster;component/Presentation/Resources/Images/Close.ico" Height="10"/>
+                    </Button>
+                    <TextBlock x:Name="TITLE" DockPanel.Dock="Left" Width="275"  Text="Comment"/>
+                </DockPanel>
+            </StatusBar>
+        </StackPanel>
+
+        <DockPanel DockPanel.Dock="Bottom" UseLayoutRounding="True" HorizontalAlignment="Right" >
+            <Button x:Name="CLOSE" Content="Close" Click="CLOSE_Click" DockPanel.Dock="Right" Width="60" Margin="5"/>
+            <Button x:Name="SAVE" Content="Save" Click="SAVE_Click" DockPanel.Dock="Right" Width="60" Margin="5"/>
+        </DockPanel>       
+        <TextBox Text="test" 
+                 x:Name="TEXTBOX"
+                 DockPanel.Dock="Top" 
+                 Margin="5" 
+                 TextWrapping="Wrap" 
+                 AcceptsReturn="True" 
+                 AcceptsTab="True" 
+                 AutoWordSelection="True"/>
+    </DockPanel>        
+</Window>
